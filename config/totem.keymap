@@ -122,10 +122,10 @@
 
         Gaming {
             bindings = <
-            &kp NB_PIPE     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &sl 5     &trans  &trans  &trans  &trans  &trans
-            &kp TAB         &kp Q         &kp W         &kp E         &kp R     &trans  &trans  &trans  &trans  &trans
-&kp ESCAPE  &kp LEFT_SHIFT  &kp A         &kp S         &kp D         &kp F     &trans  &trans  &trans  &trans  &trans  &trans
-                                          &kp LCTRL     &kp LEFT_ALT  &trans    &to 0   &to 0   &to 0
+            &kp NB_PIPE       &kp NB_Q  &kp NUMBER_2  &kp NB_E      &kp NB_R    &trans  &trans  &trans  &trans  &trans
+            &kp LEFT_SHIFT    &kp NB_A  &kp NB_W      &kp NB_D      &kp NB_F    &trans  &trans  &trans  &trans  &trans
+&kp ESCAPE  &kp LEFT_CONTROL  &kp NB_Z  &kp S         &kp NB_C      &kp NB_V    &trans  &trans  &trans  &trans  &trans  &trans
+                                        &trans        &kp LEFT_ALT  &trans      &to 0   &to 0   &to 0
             >;
 
             label = "Gaming";
