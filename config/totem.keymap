@@ -70,19 +70,19 @@
         NNav {
             label = "NNav";
             bindings = <
-        &trans        &trans        &trans     &trans          &trans    &kp INSERT      &kp K_PASTE     &kp K_COPY    &kp K_CUT        &kp CAPSLOCK
-        &kp LEFT_WIN  &kp LEFT_ALT  &kp RCTRL  &kp LEFT_SHIFT  &trans    &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &kp K_UNDO
-&trans  &trans        &trans        &trans     &trans          &trans    &kp HOME        &kp PAGE_DOWN   &kp PG_UP     &kp END          &kp K_REDO    &kp ESC
+        &trans        &trans        &trans     &trans          &trans    &kp INSERT      &trans          &trans        &trans           &trans
+        &kp LEFT_WIN  &kp LEFT_ALT  &kp RCTRL  &kp LEFT_SHIFT  &trans    &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans
+&trans  &trans        &trans        &trans     &trans          &trans    &kp HOME        &kp PAGE_DOWN   &kp PG_UP     &kp END          &trans  &kp PRINTSCREEN
                                     &trans     &trans          &trans    &trans          &trans          &trans
             >;
         };
 
         Num {
             bindings = <
-        &kp NB_SLASH  &kp N7  &kp N8      &kp N9  &kp NB_PLUS     &trans  &trans           &trans     &trans         &trans
-        &kp NB_STAR   &kp N4  &kp N5      &kp N6  &kp NB_MINUS    &trans  &kp RIGHT_SHIFT  &kp RCTRL  &kp RIGHT_ALT  &kp RIGHT_WIN
-&trans  &trans        &kp N1  &kp N2      &kp N3  &kp NB_EQUAL    &trans  &trans           &trans     &trans         &trans         &trans
-                              &kp NB_DOT  &kp N0  &trans          &trans  &trans           &trans
+        &kp NB_PIPE       &kp NB_N7  &kp NB_N8   &kp NB_N9  &kp NB_PLUS         &trans  &trans           &trans     &trans         &trans
+        &kp NB_SQT        &kp NB_N4  &kp NB_N5   &kp NB_N6  &kp NB_BACKSLASH    &trans  &kp RIGHT_SHIFT  &kp RCTRL  &kp RIGHT_ALT  &kp RIGHT_WIN
+&trans  &kp NB_LESS_THAN  &kp NB_N1  &kp NB_N2   &kp NB_N3  &kp NB_UMLAUT       &trans  &trans           &trans     &trans         &trans         &trans
+                                     &kp NB_DOT  &kp NB_N0  &trans              &trans  &trans           &trans
             >;
 
             label = "Num";
@@ -91,19 +91,19 @@
         Sym {
             label = "Sym";
             bindings = <
-        &trans        &kp NB_AMPS         &kp NB_STAR              &kp NB_LBRC               &kp NB_RBRC    &trans  &trans           &trans     &trans         &trans
-        &kp NB_COLON  &kp NB_DOLLAR       &kp NB_PRCNT             &kp NB_CARET              &kp NB_PLUS    &trans  &kp RIGHT_SHIFT  &kp RCTRL  &kp RIGHT_ALT  &kp RIGHT_WIN
-&trans  &kp NB_TILDE  &kp NB_EXCLAMATION  &kp NB_AT_SIGN           &kp NB_HASH               &kp NB_PIPE    &trans  &trans           &trans     &trans         &trans         &trans
-                                          &kp NB_LEFT_PARENTHESIS  &kp NB_RIGHT_PARENTHESIS  &trans         &trans  &trans           &trans
+        &kp NB_TILDE         &kp NB_SLASH        &kp NB_LEFT_PARENTHESIS  &kp NB_RIGHT_PARENTHESIS  &kp NB_QUESTION    &trans  &trans           &trans     &trans         &trans
+        &kp NB_ASTRK         &kp NB_DOLLAR       &kp NB_PERCENT           &kp NB_AMPERSAND          &kp NB_GRAVE       &trans  &kp RIGHT_SHIFT  &kp RCTRL  &kp RIGHT_ALT  &kp RIGHT_WIN
+&trans  &kp NB_GREATER_THAN  &kp NB_EXCLAMATION  &kp NB_DOUBLE_QUOTES     &kp NB_POUND              &kp NB_CARET       &trans  &trans           &trans     &trans         &trans         &trans
+                                                 &kp NB_LEFT_BRACE        &kp NB_RIGHT_BRACE        &trans             &trans  &trans           &trans
             >;
         };
 
         Media {
             bindings = <
-        &trans        &trans        &trans            &trans          &trans    &trans      &trans            &trans        &trans           &trans
-        &kp LEFT_WIN  &kp LEFT_ALT  &kp LEFT_CONTROL  &kp LEFT_SHIFT  &trans    &trans      &kp K_PREVIOUS    &kp C_VOL_DN  &kp C_VOLUME_UP  &kp K_NEXT
-&trans  &trans        &trans        &trans            &trans          &trans    &trans      &trans            &trans        &trans           &trans      &trans
-                                    &trans            &trans          &trans    &kp K_STOP  &kp K_PLAY_PAUSE  &kp K_MUTE
+        &trans        &trans        &trans            &trans          &trans    &trans      &trans          &trans        &trans           &trans
+        &kp LEFT_WIN  &kp LEFT_ALT  &kp LEFT_CONTROL  &kp LEFT_SHIFT  &trans    &trans      &kp C_PREVIOUS  &kp C_VOL_DN  &kp C_VOLUME_UP  &kp C_NEXT
+&trans  &trans        &trans        &trans            &trans          &trans    &trans      &trans          &trans        &trans           &trans      &trans
+                                    &trans            &trans          &trans    &kp C_STOP  &kp C_PP        &kp C_MUTE
             >;
 
             label = "Media";
@@ -132,12 +132,5 @@
         };
     };
 
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
-
-        two_three_to_meta {
-            if-layers = <1 2>;
-            then-layer = <5>;
-        };
-    };
+    conditional_layers { compatible = "zmk,conditional-layers"; };
 };
