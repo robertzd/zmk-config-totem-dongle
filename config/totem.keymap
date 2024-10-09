@@ -10,6 +10,7 @@
 //
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
+#include "keys_nb.h"
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
@@ -44,7 +45,7 @@
             label = "HOMEROW_MODS";
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <200>;
+            tapping-term-ms = <250>;
             quick-tap-ms = <125>;
             global-quick-tap;
             bindings = <&kp>, <&kp>;
@@ -59,63 +60,77 @@
         Base {
             label = "Base";
             bindings = <
-              &kp Q       &kp W       &kp E          &kp R         &kp T        &kp Y    &kp U        &kp I        &kp O       &kp P
-              &hm LGUI A  &hm LALT S  &hm LCTRL D    &hm LSHIFT F  &kp G        &kp H    &hm RSHFT J  &hm RCTRL K  &hm RALT L  &hm RGUI SEMICOLON
-&lt 3 ESCAPE  &kp Z       &kp X       &kp C          &kp V         &kp B        &kp N    &kp M        &kp COMMA    &kp DOT     &kp SLASH           &kp APOSTROPHE
-                                      &mt LCTRL DEL  &lt 1 TAB     &kp SPACE    &kp RET  &lt 2 BSPC   &kp MINUS
+               &kp NB_Q           &kp NB_W       &kp NB_E        &kp NB_R         &kp NB_T     &kp NB_Y     &kp NB_U        &kp NB_I        &kp NB_O       &kp NB_P
+               &hm LEFT_WIN NB_A  &hm LALT NB_S  &hm LCTRL NB_D  &hm LSHIFT NB_F  &kp NB_G     &kp NB_H     &hm RSHFT NB_J  &hm RCTRL NB_K  &hm RALT NB_L  &hm RIGHT_WIN NB_O_SLASH
+&kp NB_A_RING  &kp NB_Z           &kp NB_X       &kp NB_C        &kp NB_V         &kp NB_B     &kp NB_N     &kp NB_M        &kp NB_COMMA    &kp NB_DOT     &kp NB_MINUS              &kp NB_AE
+                                                 &lt 4 ESC       &lt 1 TAB        &kp SPACE    &lt 3 ENTER  &lt 2 BSPC      &lt 5 DELETE
             >;
         };
 
-        Nav {
-            label = "Nav";
+        NNav {
+            label = "NNav";
             bindings = <
-              &kp TILDE       &trans     &kp UP_ARROW  &trans     &kp LBRC    &kp RBRC  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0
-              &kp LEFT_SHIFT  &kp LEFT   &kp DOWN      &kp RIGHT  &kp LBKT    &kp RBKT  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp MINUS
-&kp LEFT_ALT  &kp LEFT_WIN    &kp MINUS  &trans        &kp PLUS   &kp LPAR    &kp RPAR  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp KP_MULTIPLY  &kp PLUS
-                                         &trans        &trans     &trans      &trans    &trans        &kp DOT
+        &trans        &trans        &trans     &trans          &trans    &kp INSERT      &trans          &trans        &trans           &trans
+        &kp LEFT_WIN  &kp LEFT_ALT  &kp RCTRL  &kp LEFT_SHIFT  &trans    &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans
+&trans  &trans        &trans        &trans     &trans          &trans    &kp HOME        &kp PAGE_DOWN   &kp PG_UP     &kp END          &trans  &kp PRINTSCREEN
+                                    &trans     &trans          &trans    &trans          &trans          &trans
             >;
+        };
+
+        Num {
+            bindings = <
+        &kp NB_PIPE       &kp NB_N7  &kp NB_N8   &kp NB_N9  &kp NB_PLUS         &trans  &trans           &trans     &trans         &trans
+        &kp NB_SQT        &kp NB_N4  &kp NB_N5   &kp NB_N6  &kp NB_BACKSLASH    &trans  &kp RIGHT_SHIFT  &kp RCTRL  &kp RIGHT_ALT  &kp RIGHT_WIN
+&trans  &kp NB_LESS_THAN  &kp NB_N1  &kp NB_N2   &kp NB_N3  &kp NB_UMLAUT       &trans  &trans           &trans     &trans         &trans         &trans
+                                     &kp NB_DOT  &kp NB_N0  &trans              &trans  &trans           &trans
+            >;
+
+            label = "Num";
         };
 
         Sym {
             label = "Sym";
             bindings = <
-        &kp EXCL  &kp AT  &kp HASH  &kp DOLLAR  &kp PERCENT    &kp CARET  &kp AMPERSAND  &kp KP_ASTERISK  &kp SQT  &kp DQT
-        &trans    &trans  &trans    &trans      &trans         &trans     &trans         &trans           &trans   &trans
-&trans  &trans    &trans  &trans    &trans      &trans         &kp UNDER  &kp EQUAL      &trans           &trans   &kp SLASH  &kp HOME
-                          &trans    &trans      &trans         &trans     &trans         &trans
+        &kp NB_TILDE         &kp NB_SLASH        &kp NB_LEFT_PARENTHESIS  &kp NB_RIGHT_PARENTHESIS  &kp NB_QUESTION    &trans  &trans           &trans     &trans         &trans
+        &kp NB_ASTRK         &kp NB_DOLLAR       &kp NB_PERCENT           &kp NB_AMPERSAND          &kp NB_GRAVE       &trans  &kp RIGHT_SHIFT  &kp RCTRL  &kp RIGHT_ALT  &kp RIGHT_WIN
+&trans  &kp NB_GREATER_THAN  &kp NB_EXCLAMATION  &kp NB_DOUBLE_QUOTES     &kp NB_POUND              &kp NB_CARET       &trans  &trans           &trans     &trans         &trans         &trans
+                                                 &kp NB_LEFT_BRACE        &kp NB_RIGHT_BRACE        &trans             &trans  &trans           &trans
             >;
         };
 
-        Fun {
-            label = "Fun";
+        Media {
             bindings = <
-        &bootloader  &trans  &trans  &trans  &to 4     &trans  &trans  &trans  &kp END  &kp F1
-        &trans       &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans   &kp F10
-&trans  &trans       &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans   &kp F20  &kp F7
-                             &trans  &trans  &trans    &trans  &trans  &trans
+        &trans        &trans        &trans            &trans          &trans    &trans      &trans          &trans        &trans           &trans
+        &kp LEFT_WIN  &kp LEFT_ALT  &kp LEFT_CONTROL  &kp LEFT_SHIFT  &trans    &trans      &kp C_PREVIOUS  &kp C_VOL_DN  &kp C_VOLUME_UP  &kp C_NEXT
+&trans  &trans        &trans        &trans            &trans          &trans    &trans      &trans          &trans        &trans           &trans      &trans
+                                    &trans            &trans          &trans    &kp C_STOP  &kp C_PP        &kp C_MUTE
             >;
+
+            label = "Media";
+        };
+
+        Meta {
+            bindings = <
+        &trans  &trans  &trans  &trans  &to 0     &kp F1  &kp F2   &kp F3   &kp F4   &trans
+        &trans  &trans  &trans  &trans  &to 6     &kp F5  &kp F6   &kp F7   &kp F8   &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &kp F9  &kp F10  &kp F11  &kp F12  &trans  &trans
+                        &trans  &trans  &trans    &trans  &trans   &trans
+            >;
+
+            label = "Meta";
         };
 
         Gaming {
             bindings = <
-            &kp Z           &kp X  &kp C      &kp V         &sl 5     &trans  &trans  &trans  &trans  &trans
-            &kp TAB         &kp Q  &kp W      &kp E         &kp R     &trans  &trans  &trans  &trans  &trans
-&kp ESCAPE  &kp LEFT_SHIFT  &kp A  &kp S      &kp D         &kp F     &trans  &trans  &trans  &trans  &trans  &trans
-                                   &kp LCTRL  &kp LEFT_ALT  &trans    &trans  &trans  &trans
+            &kp NB_PIPE       &kp NB_Q  &kp NUMBER_2  &kp NB_E      &kp NB_R    &trans  &trans  &trans  &trans  &trans
+            &kp LEFT_SHIFT    &kp NB_A  &kp NB_W      &kp NB_D      &kp NB_F    &trans  &trans  &trans  &trans  &trans
+&kp ESCAPE  &kp LEFT_CONTROL  &kp NB_Z  &kp S         &kp NB_C      &kp NB_V    &trans  &trans  &trans  &trans  &trans  &trans
+                                        &trans        &kp LEFT_ALT  &trans      &to 0   &to 0   &to 0
             >;
 
             label = "Gaming";
         };
-
-        Gaming+ {
-            bindings = <
-        &kp F10  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp T     &kp RA(RC(Y))  &kp RA(RC(U))  &trans  &trans  &kp LC(RA(DEL))
-        &kp L    &kp O         &kp Y         &kp K         &kp G     &kp F5         &trans         &trans  &trans  &trans
-&trans  &to 0    &trans        &trans        &trans        &trans    &trans         &trans         &trans  &trans  &trans           &kp LA(F4)
-                               &kp J         &kp I         &kp M     &trans         &trans         &trans
-            >;
-
-            label = "Gaming+";
-        };
     };
+
+    conditional_layers { compatible = "zmk,conditional-layers"; };
 };
