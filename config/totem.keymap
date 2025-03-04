@@ -74,10 +74,10 @@
         Base {
             label = "Base";
             bindings = <
-               &kp NB_Q           &kp NB_W       &kp NB_E        &kp NB_R         &kp NB_T     &kp NB_Y     &kp NB_U        &kp NB_I        &kp NB_O       &kp NB_P
-               &hm LEFT_WIN NB_A  &hm LALT NB_S  &hm LCTRL NB_D  &hm LSHIFT NB_F  &kp NB_G     &kp NB_H     &hm RSHFT NB_J  &hm RCTRL NB_K  &hm RALT NB_L  &hm RIGHT_WIN NB_O_SLASH
-&kp NB_A_RING  &kp NB_Z           &kp NB_X       &kp NB_C        &kp NB_V         &kp NB_B     &kp NB_N     &kp NB_M        &kp NB_COMMA    &kp NB_DOT     &kp NB_MINUS              &kp NB_AE
-                                                 &lt 4 ESC       &lt 1 TAB        &kp SPACE    &lt 3 ENTER  &lt 2 BSPC      &lt 5 DELETE
+               &kp NB_Q           &kp NB_W       &kp NB_E        &kp NB_R         &kp NB_T       &kp NB_Y     &kp NB_U        &kp NB_I        &kp NB_O       &kp NB_P
+               &hm LEFT_WIN NB_A  &hm LALT NB_S  &hm LCTRL NB_D  &hm LSHIFT NB_F  &kp NB_G       &kp NB_H     &hm RSHFT NB_J  &hm RCTRL NB_K  &hm RALT NB_L  &hm RIGHT_WIN NB_O_SLASH
+&kp NB_A_RING  &kp NB_Z           &kp NB_X       &kp NB_C        &kp NB_V         &kp NB_B       &kp NB_N     &kp NB_M        &kp NB_COMMA    &kp NB_DOT     &kp NB_MINUS              &kp NB_AE
+                                                 &lt 5 ESC       &lt 1 TAB        &lt 4 SPACE    &lt 3 ENTER  &lt 2 BSPC      &kp DELETE
             >;
         };
 
@@ -114,10 +114,10 @@
 
         Media {
             bindings = <
-        &trans        &trans        &trans            &trans          &trans    &trans      &trans          &trans        &trans           &trans
-        &kp LEFT_WIN  &kp LEFT_ALT  &kp LEFT_CONTROL  &kp LEFT_SHIFT  &trans    &trans      &kp C_PREVIOUS  &kp C_VOL_DN  &kp C_VOLUME_UP  &kp C_NEXT
-&trans  &trans        &trans        &trans            &trans          &trans    &trans      &trans          &trans        &trans           &trans      &trans
-                                    &trans            &trans          &trans    &kp C_STOP  &kp C_PP        &kp C_MUTE
+        &trans        &trans        &trans            &trans          &trans    &trans          &trans             &trans        &trans      &trans
+        &kp LEFT_WIN  &kp LEFT_ALT  &kp LEFT_CONTROL  &kp LEFT_SHIFT  &trans    &kp C_PREVIOUS  &kp C_VOLUME_DOWN  &kp C_VOL_UP  &kp C_NEXT  &trans
+&trans  &trans        &trans        &trans            &trans          &trans    &trans          &trans             &trans        &trans      &trans  &trans
+                                    &trans            &trans          &trans    &kp C_STOP      &kp C_PP           &kp C_MUTE
             >;
 
             label = "Media";
@@ -125,7 +125,7 @@
 
         Meta {
             bindings = <
-        &trans  &trans  &trans  &trans  &to 0     &kp F1  &kp F2   &kp F3   &kp F4   &trans
+        &trans  &trans  &trans  &trans  &trans    &kp F1  &kp F2   &kp F3   &kp F4   &trans
         &trans  &trans  &trans  &trans  &to 6     &kp F5  &kp F6   &kp F7   &kp F8   &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &kp F9  &kp F10  &kp F11  &kp F12  &trans  &trans
                         &trans  &trans  &trans    &trans  &trans   &trans
@@ -139,7 +139,7 @@
             &kp NB_PIPE       &kp NB_Q  &kp NUMBER_2  &kp NB_E      &kp NB_R    &trans  &trans  &trans  &trans  &trans
             &kp LEFT_SHIFT    &kp NB_A  &kp NB_W      &kp NB_D      &kp NB_F    &trans  &trans  &trans  &trans  &trans
 &kp ESCAPE  &kp LEFT_CONTROL  &kp NB_Z  &kp S         &kp NB_C      &kp NB_V    &trans  &trans  &trans  &trans  &trans  &trans
-                                        &trans        &kp LEFT_ALT  &trans      &to 0   &to 0   &to 0
+                                        &trans        &kp LEFT_ALT  &trans      &trans  &trans  &to 0
             >;
 
             label = "Gaming";
