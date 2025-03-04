@@ -50,9 +50,23 @@
             global-quick-tap;
             bindings = <&kp>, <&kp>;
         };
+
+        cw: CapsWord {
+            compatible = "zmk,behavior-caps-word";
+            label = "CapsWord";
+            #binding-cells = <0>;
+            continue-list = <BACKSPACE UNDERSCORE DELETE ENTER>;
+        };
     };
 
-    combos { compatible = "zmk,combos"; };
+    combos {
+        compatible = "zmk,combos";
+
+        CapsWord {
+            bindings = <&caps_word>;
+            key-positions = <13 16>;
+        };
+    };
 
     keymap {
         compatible = "zmk,keymap";
