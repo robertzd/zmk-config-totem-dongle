@@ -81,10 +81,10 @@
         Nav {
             label = "Nav";
             bindings = <
-        &trans        &trans        &trans     &trans          &trans    &kp INSERT      &trans          &trans        &trans           &trans
-        &kp LEFT_WIN  &kp LEFT_ALT  &kp RCTRL  &kp LEFT_SHIFT  &trans    &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans
-&trans  &trans        &trans        &trans     &trans          &trans    &kp HOME        &kp PAGE_DOWN   &kp PG_UP     &kp END          &trans  &kp PRINTSCREEN
-                                    &trans     &trans          &trans    &trans          &trans          &trans
+        &kp LA(NB_N1)  &kp LA(N2)    &kp LA(NB_N3)  &kp LA(NB_N4)   &kp LA(NB_N5)    &kp INSERT      &trans          &trans        &trans           &trans
+        &kp LEFT_WIN   &kp LEFT_ALT  &kp RCTRL      &kp LEFT_SHIFT  &trans           &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans
+&trans  &trans         &trans        &trans         &trans          &trans           &kp HOME        &kp PAGE_DOWN   &kp PG_UP     &kp END          &trans  &kp PRINTSCREEN
+                                     &trans         &trans          &trans           &trans          &trans          &trans
             >;
         };
 
