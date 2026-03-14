@@ -182,7 +182,7 @@
             label = "Nav_Mac";
             bindings = <
         &kp LG(NB_N1)    &kp LG(NB_N2)  &kp LG(NB_N3)  &kp LG(NB_N4)  &kp LG(NB_N5)    &trans  &trans  &trans        &trans  &trans
-        &kp LEFT_CONTROL &kp LEFT_ALT   &kp RIGHT_WIN  &kp LEFT_SHIFT &trans           &trans  &trans  &trans        &trans  &trans
+        &kp LEFT_CONTROL &kp LEFT_ALT   &kp LEFT_WIN   &kp LEFT_SHIFT &trans           &trans  &trans  &trans        &trans  &trans
 &trans  &trans           &trans         &trans         &trans         &trans           &trans  &trans  &trans        &trans  &trans  &trans
                                       &trans           &trans         &trans           &trans  &trans  &trans
             >;
