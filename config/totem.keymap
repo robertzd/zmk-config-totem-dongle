@@ -26,6 +26,8 @@
 #define BASE_MAC    9
 #define NAV_MAC     10
 #define MEDIA_MAC   11
+#define NUM_MAC     12
+#define SYM_MAC     13
 
 &mt {
     quick-tap-ms = <100>;
@@ -197,6 +199,26 @@
                                 &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
+
+        num_mac {
+            label = "Num_Mac";
+            bindings = <
+        &trans  &trans  &trans  &trans  &trans  &trans  &trans             &trans        &trans      &trans
+        &trans  &trans  &trans  &trans  &trans  &trans  &kp RIGHT_SHIFT    &kp LEFT_WIN  &kp RALT    &kp RIGHT_CONTROL
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans             &trans        &trans      &trans  &trans
+                                  &trans  &trans  &trans  &trans             &trans        &trans
+            >;
+        };
+
+        sym_mac {
+            label = "Sym_Mac";
+            bindings = <
+        &trans  &trans  &trans  &trans  &trans  &trans  &trans             &trans        &trans      &trans
+        &trans  &trans  &trans  &trans  &trans  &trans  &kp RIGHT_SHIFT    &kp LEFT_WIN  &kp RALT    &kp RIGHT_CONTROL
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans             &trans        &trans      &trans  &trans
+                                  &trans  &trans  &trans  &trans             &trans        &trans
+            >;
+        };
     };
 
     conditional_layers {
@@ -215,6 +237,16 @@
         media_mac_layer {
             if-layers = <MEDIA OS_MAC>;
             then-layer = <MEDIA_MAC>;
+        };
+
+        num_mac_layer {
+            if-layers = <NUM OS_MAC>;
+            then-layer = <NUM_MAC>;
+        };
+
+        sym_mac_layer {
+            if-layers = <SYM OS_MAC>;
+            then-layer = <SYM_MAC>;
         };
     };
 };
