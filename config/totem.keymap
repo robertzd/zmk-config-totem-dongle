@@ -15,17 +15,17 @@
 #include <dt-bindings/zmk/keys.h>
 
 #define BASE        0
-#define BASE_MAC    1
-#define NAV         2
-#define NAV_MAC     3
-#define SYM         4
-#define NUM         5
-#define META        6
-#define GAMING      7
-#define GAMING_2    8
-#define MEDIA       9
-#define MEDIA_MAC   10
-#define OS_MAC      11
+#define NAV         1
+#define SYM         2
+#define NUM         3
+#define META        4
+#define GAMING      5
+#define GAMING_2    6
+#define MEDIA       7
+#define OS_MAC      8
+#define BASE_MAC    9
+#define NAV_MAC     10
+#define MEDIA_MAC   11
 
 &mt {
     quick-tap-ms = <100>;
@@ -60,21 +60,6 @@
             continue-list = <BACKSPACE UNDERSCORE DELETE ENTER SPACE>;
         };
 
-        mac_on: mac_mode_on {
-            compatible = "zmk,behavior-toggle-layer";
-            label = "MAC_MODE_ON";
-            #binding-cells = <1>;
-            toggle-mode = "on";
-            locking;
-        };
-
-        mac_off: mac_mode_off {
-            compatible = "zmk,behavior-toggle-layer";
-            label = "MAC_MODE_OFF";
-            #binding-cells = <1>;
-            toggle-mode = "off";
-            locking;
-        };
     };
 
     combos {
@@ -99,16 +84,6 @@
             >;
         };
 
-        base_mac {
-            label = "Base_Mac";
-            bindings = <
-        &trans                &trans        &trans            &trans               &trans  &trans  &trans         &trans              &trans         &trans
-        &hm LEFT_CONTROL NB_A &hm LALT NB_S &hm LEFT_WIN NB_D &hm LSHIFT NB_F      &trans  &trans  &hm RSHFT NB_J &hm RIGHT_WIN NB_K  &hm RALT NB_L  &hm RIGHT_CONTROL NB_O_SLASH
-&trans  &trans                &trans        &trans            &trans               &trans  &trans  &trans         &trans              &trans         &trans  &trans
-                                                   &trans      &trans               &trans  &trans  &trans         &trans
-            >;
-        };
-
         Nav {
             label = "Nav";
             bindings = <
@@ -116,16 +91,6 @@
         &kp LEFT_WIN   &kp LEFT_ALT  &kp RCTRL      &kp LEFT_SHIFT  &trans           &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans
 &trans  &trans         &trans        &trans         &trans          &trans           &kp HOME        &kp PAGE_DOWN   &kp PG_UP     &kp END          &trans  &kp PRINTSCREEN
                                      &trans         &trans          &trans           &trans          &trans          &trans
-            >;
-        };
-
-        nav_mac {
-            label = "Nav_Mac";
-            bindings = <
-        &kp LG(NB_N1)    &kp LG(NB_N2)  &kp LG(NB_N3)  &kp LG(NB_N4)  &kp LG(NB_N5)    &trans  &trans  &trans        &trans  &trans
-        &kp LEFT_CONTROL &kp LEFT_ALT   &kp RIGHT_WIN  &kp LEFT_SHIFT &trans           &trans  &trans  &trans        &trans  &trans
-&trans  &trans           &trans         &trans         &trans         &trans           &trans  &trans  &trans        &trans  &trans  &trans
-                                      &trans           &trans         &trans           &trans  &trans  &trans
             >;
         };
 
@@ -152,8 +117,8 @@
 
         Meta {
             bindings = <
-        &mac_off OS_MAC  &mac_on OS_MAC  &trans  &trans  &to GAMING_2  &kp F1  &kp F2   &kp F3   &kp F4   &trans
-        &trans           &trans          &trans  &trans  &to GAMING    &kp F5  &kp F6   &kp F7   &kp F8   &trans
+        &tog OS_MAC  &trans  &trans  &trans  &to GAMING_2  &kp F1  &kp F2   &kp F3   &kp F4   &trans
+        &trans       &trans  &trans  &trans  &to GAMING    &kp F5  &kp F6   &kp F7   &kp F8   &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &kp F9  &kp F10  &kp F11  &kp F12  &trans  &studio_unlock
                         &trans  &trans  &trans    &trans  &trans   &trans
             >;
@@ -193,16 +158,6 @@
             label = "Media";
         };
 
-        media_mac {
-            label = "Media_Mac";
-            bindings = <
-        &trans           &trans        &trans        &trans       &trans  &trans  &trans  &trans  &trans  &trans
-        &kp LEFT_CONTROL &kp LEFT_ALT  &kp LEFT_WIN  &kp LEFT_SHIFT  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans           &trans        &trans       &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                                &trans  &trans  &trans  &trans  &trans  &trans
-            >;
-        };
-
         os_mac {
             label = "OS_Mac";
             bindings = <
@@ -210,6 +165,36 @@
         &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
                                  &trans  &trans  &trans  &trans  &trans  &trans
+            >;
+        };
+
+        base_mac {
+            label = "Base_Mac";
+            bindings = <
+        &trans                &trans        &trans            &trans               &trans  &trans  &trans         &trans              &trans         &trans
+        &hm LEFT_CONTROL NB_A &hm LALT NB_S &hm LEFT_WIN NB_D &hm LSHIFT NB_F      &trans  &trans  &hm RSHFT NB_J &hm RIGHT_WIN NB_K  &hm RALT NB_L  &hm RIGHT_CONTROL NB_O_SLASH
+&trans  &trans                &trans        &trans            &trans               &trans  &trans  &trans         &trans              &trans         &trans  &trans
+                                                   &trans      &trans               &trans  &trans  &trans         &trans
+            >;
+        };
+
+        nav_mac {
+            label = "Nav_Mac";
+            bindings = <
+        &kp LG(NB_N1)    &kp LG(NB_N2)  &kp LG(NB_N3)  &kp LG(NB_N4)  &kp LG(NB_N5)    &trans  &trans  &trans        &trans  &trans
+        &kp LEFT_CONTROL &kp LEFT_ALT   &kp RIGHT_WIN  &kp LEFT_SHIFT &trans           &trans  &trans  &trans        &trans  &trans
+&trans  &trans           &trans         &trans         &trans         &trans           &trans  &trans  &trans        &trans  &trans  &trans
+                                      &trans           &trans         &trans           &trans  &trans  &trans
+            >;
+        };
+
+        media_mac {
+            label = "Media_Mac";
+            bindings = <
+        &trans           &trans        &trans        &trans           &trans  &trans  &trans  &trans  &trans  &trans
+        &kp LEFT_CONTROL &kp LEFT_ALT  &kp LEFT_WIN  &kp LEFT_SHIFT   &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans           &trans        &trans        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                                &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
     };
