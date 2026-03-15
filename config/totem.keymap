@@ -12,7 +12,9 @@
 
 #include "keys_nb.h"
 #include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/outputs.h>
 
 #define BASE        0
 #define NAV         1
@@ -82,7 +84,7 @@
                &kp NB_Q           &kp NB_W       &kp NB_E        &kp NB_R         &kp NB_T       &kp NB_Y     &kp NB_U        &kp NB_I        &kp NB_O       &kp NB_P
                &hm LEFT_WIN NB_A  &hm LALT NB_S  &hm LCTRL NB_D  &hm LSHIFT NB_F  &kp NB_G       &kp NB_H     &hm RSHFT NB_J  &hm RCTRL NB_K  &hm RALT NB_L  &hm RIGHT_WIN NB_O_SLASH
 &kp NB_A_RING  &kp NB_Z           &kp NB_X       &kp NB_C        &kp NB_V         &kp NB_B       &kp NB_N     &kp NB_M        &kp NB_COMMA    &kp NB_DOT     &kp NB_MINUS              &kp NB_AE
-                                                 &lt META ESC    &lt NAV TAB      &lt MEDIA SPACE &lt SYM ENTER &lt NUM BSPC    &kp DELETE
+                                                 &lt 4 ESC       &lt 1 TAB        &lt 7 SPACE    &lt 2 ENTER   &lt 3 BSPC      &kp DELETE
             >;
         };
 
@@ -119,10 +121,10 @@
 
         Meta {
             bindings = <
-        &tog OS_MAC  &trans  &trans  &trans  &to GAMING_2  &kp F1  &kp F2   &kp F3   &kp F4   &trans
-        &trans       &trans  &trans  &trans  &to GAMING    &kp F5  &kp F6   &kp F7   &kp F8   &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &kp F9  &kp F10  &kp F11  &kp F12  &trans  &studio_unlock
-                        &trans  &trans  &trans    &trans  &trans   &trans
+        &out OUT_USB  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &kp F1  &kp F2   &kp F3   &kp F4   &tog 8
+        &trans        &trans        &trans        &trans        &to 5         &kp F5  &kp F6   &kp F7   &kp F8   &trans
+&bt BT_CLR  &trans  &trans  &trans  &trans  &to 6          &kp F9  &kp F10  &kp F11  &kp F12  &trans  &studio_unlock
+                            &trans  &trans  &trans    &trans  &trans   &trans
             >;
 
             label = "Meta";
@@ -133,7 +135,7 @@
             &kp TAB           &kp NB_Q  &kp NUMBER_2  &kp NB_E      &kp NB_R     &trans  &trans  &trans  &trans  &trans
             &kp LEFT_SHIFT    &kp NB_A  &kp NB_W      &kp NB_D      &kp NB_F     &trans  &trans  &trans  &trans  &trans
 &kp ESCAPE  &kp LEFT_CONTROL  &kp NB_Z  &kp S         &kp NB_C      &kp NB_V     &trans  &trans  &trans  &trans  &trans  &trans
-                                        &kp NB_X      &kp LEFT_ALT  &kp SPACE    &trans  &trans  &to BASE
+                                        &kp NB_X      &kp LEFT_ALT  &kp SPACE    &trans  &trans  &to 0
             >;
 
             label = "Gaming";
@@ -145,7 +147,7 @@
                &kp NB_Q  &kp NB_W  &kp NB_E  &kp NB_R  &kp NB_T     &trans  &trans  &trans  &trans  &trans
                &kp NB_A  &kp NB_S  &kp NB_D  &kp NB_F  &kp NB_G     &trans  &trans  &trans  &trans  &trans
 &kp NB_A_RING  &kp NB_Z  &kp NB_X  &kp NB_C  &kp NB_V  &kp NB_B     &trans  &trans  &trans  &trans  &trans  &trans
-                                   &kp ESC   &kp TAB   &kp SPACE    &trans  &trans  &to BASE
+                                   &kp ESC   &kp TAB   &kp SPACE    &trans  &trans  &to 0
             >;
         };
 
