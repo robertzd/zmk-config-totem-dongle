@@ -13,7 +13,7 @@ Detailed hardware information belongs in the upstream TOTEM and Prospector repos
 
 ## What This Repo Builds
 
-From [`build.yaml`](/home/robert/.t3/worktrees/zmk-config-totem-dongle/t3code-6fa37bab/build.yaml):
+From [`build.yaml`](build.yaml):
 
 - `totem_left`
 - `totem_right`
@@ -24,12 +24,33 @@ These are the left half, right half, dongle, and reset images for the setup.
 
 ## What Is Customized Here
 
-- Local TOTEM shield files and a dongle target in [`boards/shields/totem`](/home/robert/.t3/worktrees/zmk-config-totem-dongle/t3code-6fa37bab/boards/shields/totem).
+- Local TOTEM shield files and a dongle target in [`config/boards/shields/totem`](config/boards/shields/totem).
 - Dongle-specific Prospector/display settings such as fixed brightness, display rotation, and split central battery proxying.
-- Norwegian localized keys via [`config/keys_nb.h`](/home/robert/.t3/worktrees/zmk-config-totem-dongle/t3code-6fa37bab/config/keys_nb.h).
-- Personal keymap and behaviors in [`config/totem.keymap`](/home/robert/.t3/worktrees/zmk-config-totem-dongle/t3code-6fa37bab/config/totem.keymap).
+- Norwegian localized keys via [`config/keys_nb.h`](config/keys_nb.h).
+- Personal keymap and behaviors in [`config/totem.keymap`](config/totem.keymap).
 - Dual-OS Mac layers, host switching, ZMK Studio unlock, and gaming layers.
-- Minor BLE/radio tuning in [`config/totem.conf`](/home/robert/.t3/worktrees/zmk-config-totem-dongle/t3code-6fa37bab/config/totem.conf).
+- Minor BLE/radio tuning in [`config/totem.conf`](config/totem.conf).
+
+## Layout Reference
+
+Generated layout references live in [`docs/layouts`](docs/layouts):
+
+- Main layers PNG: [`docs/layouts/totem-layouts-main.png`](docs/layouts/totem-layouts-main.png)
+- Main layers SVG: [`docs/layouts/totem-layouts-main.svg`](docs/layouts/totem-layouts-main.svg)
+- Full layout PNG: [`docs/layouts/totem-layouts.png`](docs/layouts/totem-layouts.png)
+- Full layout SVG: [`docs/layouts/totem-layouts.svg`](docs/layouts/totem-layouts.svg)
+- Parsed layout YAML: [`docs/layouts/totem-layouts.yaml`](docs/layouts/totem-layouts.yaml)
+
+The main reference focuses on the layers that are most useful day to day: `Base`, `Nav`, `Num`, `Sym`, `Meta`, and `Media`. The full reference also includes the gaming and Mac-specific layers.
+
+![TOTEM main layout reference](docs/layouts/totem-layouts-main.png)
+
+To regenerate the images after editing the keymap:
+
+```sh
+python3 -m pip install --target .tools keymap-drawer
+python3 scripts/render_layouts.py
+```
 
 ## Upstream Refs
 
@@ -37,11 +58,11 @@ These are the left half, right half, dongle, and reset images for the setup.
 - [`carrefinho/prospector-zmk-module`](https://github.com/carrefinho/prospector-zmk-module): `feat/new-status-screens`
 - Build workflow: `zmkfirmware/zmk/.github/workflows/build-user-config.yml@main`
 
-These are tracked refs/branches from [`config/west.yml`](/home/robert/.t3/worktrees/zmk-config-totem-dongle/t3code-6fa37bab/config/west.yml) and [`.github/workflows/build.yml`](/home/robert/.t3/worktrees/zmk-config-totem-dongle/t3code-6fa37bab/.github/workflows/build.yml), not tagged release versions.
+These are tracked refs/branches from [`config/west.yml`](config/west.yml) and [`.github/workflows/build.yml`](.github/workflows/build.yml), not tagged release versions.
 
 ## Where To Edit
 
-- [`config/totem.keymap`](/home/robert/.t3/worktrees/zmk-config-totem-dongle/t3code-6fa37bab/config/totem.keymap)
-- [`config/totem.conf`](/home/robert/.t3/worktrees/zmk-config-totem-dongle/t3code-6fa37bab/config/totem.conf)
-- [`config/west.yml`](/home/robert/.t3/worktrees/zmk-config-totem-dongle/t3code-6fa37bab/config/west.yml)
-- [`boards/shields/totem`](/home/robert/.t3/worktrees/zmk-config-totem-dongle/t3code-6fa37bab/boards/shields/totem)
+- [`config/totem.keymap`](config/totem.keymap)
+- [`config/totem.conf`](config/totem.conf)
+- [`config/west.yml`](config/west.yml)
+- [`config/boards/shields/totem`](config/boards/shields/totem)
