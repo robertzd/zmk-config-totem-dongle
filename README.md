@@ -25,6 +25,7 @@ These are the tracked refs from [`config/west.yml`](config/west.yml) and [`.gith
 
 - Norwegian-localized keymap in [`config/totem.keymap`](config/totem.keymap) via [`config/keys_nb.h`](config/keys_nb.h)
 - Main layers: `Base`, `Nav`, `Num`, `Sym`, `Meta`, `Media`
+- Home row mods on the base and Mac overlay layers
 - Mac mode through conditional layers
 - Bluetooth slot switching, Bluetooth clear, output select, and Studio unlock on `Meta`
 - Two gaming layers
