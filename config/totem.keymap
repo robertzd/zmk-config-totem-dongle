@@ -39,7 +39,8 @@
 
 &lt {
     tapping-term-ms = <240>;
-    flavor = "balanced";
+    // Resolve Meta before the interrupting chord key is looked up.
+    flavor = "hold-preferred";
     quick-tap-ms = <150>;
 };
 

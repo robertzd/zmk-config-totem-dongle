@@ -45,6 +45,20 @@ The leftmost thumb key is `Esc` when tapped and activates `Meta` when held:
 - Press the rightmost thumb key in either gaming layer to return to `Base`.
 - Hold `Meta` and press `P` again to leave Mac mode.
 
+## Dongle Battery Order
+
+The two battery arcs follow the dongle's split-peripheral pairing slots: slot 0 is
+the left arc and slot 1 is the right arc. ZMK does not identify a peripheral as
+the physical left or right half, so the halves must be paired in that order.
+
+If the arcs are reversed:
+
+1. Flash the `settings_reset` target to the dongle.
+2. Flash the normal `totem_dongle prospector_adapter` target back to the dongle.
+3. Power the left half first, then the right half, so they occupy slots 0 and 1.
+
+The `settings_reset` target erases the saved split addresses and BLE settings.
+
 ## Layout Reference
 
 Rendered layout references live in [`docs/layouts`](docs/layouts). They are generated from [`config/totem.keymap`](config/totem.keymap) by [`scripts/render_layouts.py`](scripts/render_layouts.py), which uses [keymap-drawer](https://github.com/caksoylar/keymap-drawer) to parse the keymap, normalize this repo's Norwegian and custom legends, and write the SVG/PNG outputs. The helper script was originally created with GPT/Codex assistance and is now maintained in-repo.
