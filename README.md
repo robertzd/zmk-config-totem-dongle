@@ -27,10 +27,23 @@ These are the tracked refs from [`config/west.yml`](config/west.yml) and [`.gith
 - Main layers: `Base`, `Nav`, `Num`, `Sym`, `Meta`, `Media`
 - Home row mods on the base and Mac overlay layers
 - Mac mode through conditional layers
-- Bluetooth slot switching, Bluetooth clear, output select, and Studio unlock on `Meta`
+- Bluetooth slot switching, Bluetooth clear, and output select on `Meta`
 - Two gaming layers
 - Dongle tweaks: fixed brightness, 180-degree display rotation, split battery proxying
 - Global radio/BLE tuning in [`config/totem.conf`](config/totem.conf)
+
+## Layer Controls
+
+The leftmost thumb key is `Esc` when tapped and activates `Meta` when held:
+
+- Hold `Meta` and press `Q` to select USB output.
+- Hold `Meta` and press `W`, `E`, `R`, or `T` to select Bluetooth profile 0, 1, 2, or 3.
+- Hold `Meta` and press `Æ` to select Bluetooth output.
+- Hold `Meta` and press `P` to toggle Mac mode.
+- Hold `Meta` and press `G` to enter `Gaming`.
+- Hold `Meta` and press `B` to enter `Gaming_2`.
+- Press the rightmost thumb key in either gaming layer to return to `Base`.
+- Hold `Meta` and press `P` again to leave Mac mode.
 
 ## Layout Reference
 
@@ -60,7 +73,7 @@ PNG output requires `rsvg-convert` in `PATH`.
 
 - `totem_left`: left keyboard half
 - `totem_right`: right keyboard half
-- `totem_dongle prospector_adapter`: Prospector dongle target with ZMK Studio enabled
+- `totem_dongle prospector_adapter`: Prospector dongle target
 - `settings_reset`: reset target for clearing saved ZMK settings
 
 Targets are defined in [`build.yaml`](build.yaml) and built in GitHub Actions via [`.github/workflows/build.yml`](.github/workflows/build.yml), which uses the upstream ZMK user-config workflow.

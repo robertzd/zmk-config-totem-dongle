@@ -269,7 +269,7 @@ layers:
   - F12
   - t: ▽
     type: trans
-  - Studio
+  - BLE
   - type: held
   - t: ▽
     type: trans

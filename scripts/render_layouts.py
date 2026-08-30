@@ -20,8 +20,8 @@ PYTHON_BIN = Path("/usr/bin/python3")
 
 
 EXACT_LABELS = {
-    "&studio_unlock": "Studio",
     "OUT USB": "USB",
+    "OUT BLE": "BLE",
     "BT CLR": "BT clr",
     "LEFT WIN": "Gui",
     "LEFT GUI": "Gui",
