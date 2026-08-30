@@ -13,13 +13,13 @@ Hardware build details, PCB files, and assembly instructions live in the upstrea
 - [keymap-drawer](https://github.com/caksoylar/keymap-drawer): layout rendering tool used by `scripts/render_layouts.py`
 - [miryoku](https://github.com/manna-harbour/miryoku) as layout inspiration
 
-Tracked refs:
+Pinned revisions:
 
-- [`zmkfirmware/zmk`](https://github.com/zmkfirmware/zmk): `main`
-- [`carrefinho/prospector-zmk-module`](https://github.com/carrefinho/prospector-zmk-module): `feat/new-status-screens`
-- Build workflow: `zmkfirmware/zmk/.github/workflows/build-user-config.yml@main`
+- [`zmkfirmware/zmk`](https://github.com/zmkfirmware/zmk): `edf5c0814fd3ea202e43aad2d68fd32e882a518c` (`v0.3`)
+- [`carrefinho/prospector-zmk-module`](https://github.com/carrefinho/prospector-zmk-module): `29e8fdd2389886b564042a914145cf28ac06be3c`
+- Build workflow: `zmkfirmware/zmk/.github/workflows/build-user-config.yml@edf5c0814fd3ea202e43aad2d68fd32e882a518c`
 
-These are the tracked refs from [`config/west.yml`](config/west.yml) and [`.github/workflows/build.yml`](.github/workflows/build.yml), not tagged releases.
+These commits are pinned in [`config/west.yml`](config/west.yml) and [`.github/workflows/build.yml`](.github/workflows/build.yml). Builds will not silently change when either upstream branch moves.
 
 ## Key Features
 
@@ -34,7 +34,7 @@ These are the tracked refs from [`config/west.yml`](config/west.yml) and [`.gith
 
 ## Layer Controls
 
-The leftmost thumb key is `Esc` when tapped and activates `Meta` when held:
+The leftmost thumb key is `Esc` when tapped and activates `Meta` when held, matching the other thumb layer-taps:
 
 - Hold `Meta` and press `Q` to select Bluetooth output.
 - Hold `Meta` and press `A` to select USB output.
@@ -51,13 +51,16 @@ The two battery arcs follow the dongle's split-peripheral pairing slots: slot 0 
 the left arc and slot 1 is the right arc. ZMK does not identify a peripheral as
 the physical left or right half, so the halves must be paired in that order.
 
-If the arcs are reversed:
+If the right arc shows the left battery, or shows a stale `100` value:
 
-1. Flash the `settings_reset` target to the dongle.
-2. Flash the normal `totem_dongle prospector_adapter` target back to the dongle.
-3. Power the left half first, then the right half, so they occupy slots 0 and 1.
+1. Turn both halves off.
+2. Flash the `settings_reset` target to the dongle.
+3. Flash the normal `totem_dongle prospector_adapter` target back to the dongle.
+4. Turn on only the left half and wait until it connects.
+5. Turn on the right half and wait until it connects.
+6. Re-pair the dongle with the computer. The reset erased its host BLE profiles too.
 
-The `settings_reset` target erases the saved split addresses and BLE settings.
+The firmware cannot infer which peripheral is physically left or right. The Prospector screen indexes the battery events by the dongle's saved peripheral slots, so resetting and pairing in physical order is the deterministic fix.
 
 ## Layout Reference
 

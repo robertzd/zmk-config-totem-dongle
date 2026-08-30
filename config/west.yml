@@ -7,10 +7,10 @@ manifest:
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: main
+      revision: edf5c0814fd3ea202e43aad2d68fd32e882a518c
       import: app/west.yml
     - name: prospector-zmk-module
       remote: carrefinho
-      revision: feat/new-status-screens
+      revision: 29e8fdd2389886b564042a914145cf28ac06be3c
   self:
     path: config
