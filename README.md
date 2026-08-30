@@ -15,9 +15,9 @@ Hardware build details, PCB files, and assembly instructions live in the upstrea
 
 Pinned revisions:
 
-- [`zmkfirmware/zmk`](https://github.com/zmkfirmware/zmk): `edf5c0814fd3ea202e43aad2d68fd32e882a518c` (`v0.3`)
-- [`carrefinho/prospector-zmk-module`](https://github.com/carrefinho/prospector-zmk-module): `29e8fdd2389886b564042a914145cf28ac06be3c`
-- Build workflow: `zmkfirmware/zmk/.github/workflows/build-user-config.yml@edf5c0814fd3ea202e43aad2d68fd32e882a518c`
+- [`zmkfirmware/zmk`](https://github.com/zmkfirmware/zmk): `641514a97db345f499dd50b0360e594270f008fe`
+- [`carrefinho/prospector-zmk-module`](https://github.com/carrefinho/prospector-zmk-module): `ed98221f3b52b7066dbb10ba3af8a29150b93a5a` (`feat/new-status-screens`)
+- Build workflow: `zmkfirmware/zmk/.github/workflows/build-user-config.yml@641514a97db345f499dd50b0360e594270f008fe`
 
 These commits are pinned in [`config/west.yml`](config/west.yml) and [`.github/workflows/build.yml`](.github/workflows/build.yml). Builds will not silently change when either upstream branch moves.
 
@@ -94,6 +94,23 @@ PNG output requires `rsvg-convert` in `PATH`.
 - `settings_reset`: reset target for clearing saved ZMK settings
 
 Targets are defined in [`build.yaml`](build.yaml) and built in GitHub Actions via [`.github/workflows/build.yml`](.github/workflows/build.yml), which uses the upstream ZMK user-config workflow.
+
+## Flashing
+
+The left, right, and dongle images must use the same pinned ZMK revision. After a dependency revision changes, flash all three normal firmware images from the same GitHub Actions artifact.
+
+For this revision, perform one coordinated reset and flash:
+
+1. Turn both halves off.
+2. Flash `settings_reset` to the dongle.
+3. Flash `totem_left` to the left half, then turn it off.
+4. Flash `totem_right` to the right half, then turn it off.
+5. Flash `totem_dongle prospector_adapter` to the dongle.
+6. Turn on only the left half and wait for it to connect.
+7. Turn on the right half and wait for it to connect.
+8. Re-pair the dongle with the computer.
+
+After this coordinated flash, ordinary keymap-only changes require flashing only the dongle. Repeat the three-device flash only when `config/west.yml`, the board target, or the split configuration changes.
 
 ## Where To Edit
 
