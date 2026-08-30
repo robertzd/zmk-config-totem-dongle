@@ -117,9 +117,9 @@
 
         Meta {
             bindings = <
-        &out OUT_USB  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &kp F1  &kp F2   &kp F3   &kp F4   &tog OS_MAC
-        &trans        &trans        &trans        &trans        &to GAMING         &kp F5  &kp F6   &kp F7   &kp F8   &trans
-&bt BT_CLR  &trans  &trans  &trans  &trans  &to GAMING_2          &kp F9  &kp F10  &kp F11  &kp F12  &trans  &out OUT_BLE
+        &out OUT_BLE  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &kp F1  &kp F2   &kp F3   &kp F4   &tog OS_MAC
+        &out OUT_USB  &trans        &trans        &trans        &to GAMING         &kp F5  &kp F6   &kp F7   &kp F8   &trans
+&bt BT_CLR  &trans  &trans  &trans  &trans  &to GAMING_2          &kp F9  &kp F10  &kp F11  &kp F12  &trans  &trans
                             &trans  &trans  &trans    &trans  &trans   &trans
             >;
 

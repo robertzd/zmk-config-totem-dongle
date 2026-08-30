@@ -36,9 +36,9 @@ These are the tracked refs from [`config/west.yml`](config/west.yml) and [`.gith
 
 The leftmost thumb key is `Esc` when tapped and activates `Meta` when held:
 
-- Hold `Meta` and press `Q` to select USB output.
+- Hold `Meta` and press `Q` to select Bluetooth output.
+- Hold `Meta` and press `A` to select USB output.
 - Hold `Meta` and press `W`, `E`, `R`, or `T` to select Bluetooth profile 0, 1, 2, or 3.
-- Hold `Meta` and press `Æ` to select Bluetooth output.
 - Hold `Meta` and press `P` to toggle Mac mode.
 - Hold `Meta` and press `G` to enter `Gaming`.
 - Hold `Meta` and press `B` to enter `Gaming_2`.

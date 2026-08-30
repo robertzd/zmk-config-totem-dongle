@@ -221,7 +221,7 @@ layers:
   - t: ▽
     type: trans
   Meta:
-  - USB
+  - BLE
   - t: BT
     h: '0'
   - t: BT
@@ -236,8 +236,7 @@ layers:
   - F4
   - t: Mac mode
     h: toggle
-  - t: ▽
-    type: trans
+  - USB
   - t: ▽
     type: trans
   - t: ▽
@@ -269,7 +268,8 @@ layers:
   - F12
   - t: ▽
     type: trans
-  - BLE
+  - t: ▽
+    type: trans
   - type: held
   - t: ▽
     type: trans
