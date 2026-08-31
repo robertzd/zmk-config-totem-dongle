@@ -17,9 +17,10 @@ Pinned revisions:
 
 - [`zmkfirmware/zmk`](https://github.com/zmkfirmware/zmk): `641514a97db345f499dd50b0360e594270f008fe`
 - [`carrefinho/prospector-zmk-module`](https://github.com/carrefinho/prospector-zmk-module): `ed98221f3b52b7066dbb10ba3af8a29150b93a5a` (`feat/new-status-screens`)
-- Build workflow: `zmkfirmware/zmk/.github/workflows/build-user-config.yml@641514a97db345f499dd50b0360e594270f008fe`
 
-These commits are pinned in [`config/west.yml`](config/west.yml) and [`.github/workflows/build.yml`](.github/workflows/build.yml). Builds will not silently change when either upstream branch moves.
+These commits, along with the pinned ZMK build workflow, are recorded in
+[`config/west.yml`](config/west.yml) and [`.github/workflows/build.yml`](.github/workflows/build.yml).
+Builds will not silently change when upstream branches move.
 
 ## Key Features
 
@@ -32,39 +33,8 @@ These commits are pinned in [`config/west.yml`](config/west.yml) and [`.github/w
 - Dongle tweaks: fixed brightness, 180-degree display rotation, split battery proxying
 - Global radio/BLE tuning in [`config/totem.conf`](config/totem.conf)
 
-## Layer Controls
-
-The leftmost thumb key is `Esc` when tapped and activates `Meta` when held, matching the other thumb layer-taps:
-
-- Hold `Meta` and press `Q` to select Bluetooth output.
-- Hold `Meta` and press `A` to select USB output.
-- Hold `Meta` and press `W`, `E`, `R`, or `T` to select Bluetooth profile 0, 1, 2, or 3.
-- Hold `Meta` and press `P` to toggle Mac mode.
-- Hold `Meta` and press `G` to enter `Gaming`.
-- Hold `Meta` and press `B` to enter `Gaming_2`.
-- Press the rightmost thumb key in either gaming layer to return to `Base`.
-- Hold `Meta` and press `P` again to leave Mac mode.
-
-## Dongle Battery Order
-
-The two battery arcs follow the dongle's split-peripheral pairing slots: slot 0 is
-the left arc and slot 1 is the right arc. ZMK does not identify a peripheral as
-the physical left or right half, so the halves must be paired in that order.
-
-If the right arc shows the left battery, or shows a stale `100` value:
-
-1. Turn both halves off.
-2. Flash the `settings_reset` target to the dongle.
-3. Flash the normal `totem_dongle prospector_adapter` target back to the dongle.
-4. Turn on only the left half and wait until it connects.
-5. Turn on the right half and wait until it connects.
-6. Re-pair the dongle with the computer. The reset erased its host BLE profiles too.
-
-The firmware cannot infer which peripheral is physically left or right. The Prospector screen indexes the battery events by the dongle's saved peripheral slots, so resetting and pairing in physical order is the deterministic fix.
-
 ## Layout Reference
-
-Rendered layout references live in [`docs/layouts`](docs/layouts). They are generated from [`config/totem.keymap`](config/totem.keymap) by [`scripts/render_layouts.py`](scripts/render_layouts.py), which uses [keymap-drawer](https://github.com/caksoylar/keymap-drawer) to parse the keymap, normalize this repo's Norwegian and custom legends, and write the SVG/PNG outputs. The helper script was originally created with GPT/Codex assistance and is now maintained in-repo.
+Rendered layout references live in [`docs/layouts`](docs/layouts). They are generated from [`config/totem.keymap`](config/totem.keymap) by [`scripts/render_layouts.py`](scripts/render_layouts.py), which uses [keymap-drawer](https://github.com/caksoylar/keymap-drawer) to parse the keymap, normalize this repo's Norwegian and custom legends, and write the SVG/PNG outputs. The helper script is maintained in-repo.
 
 Main layers:
 - [`docs/layouts/totem-layouts-main.png`](docs/layouts/totem-layouts-main.png)
@@ -93,32 +63,18 @@ PNG output requires `rsvg-convert` in `PATH`.
 - `totem_dongle prospector_adapter`: Prospector dongle target
 - `settings_reset`: reset target for clearing saved ZMK settings
 
-Targets are defined in [`build.yaml`](build.yaml) and built in GitHub Actions via [`.github/workflows/build.yml`](.github/workflows/build.yml), which uses the upstream ZMK user-config workflow.
+Targets are defined in [`build.yaml`](build.yaml) and built in GitHub Actions via
+[`.github/workflows/build.yml`](.github/workflows/build.yml).
 
 ## Flashing
 
-The left, right, and dongle images must use the same pinned ZMK revision. After a dependency revision changes, flash all three normal firmware images from the same GitHub Actions artifact.
+Flash the left, right, and dongle images from the same artifact whenever the
+dependency, board, or split configuration changes. Keymap-only changes require
+flashing only the dongle.
 
-For this revision, perform one coordinated reset and flash:
+For initial setup or to correct battery ordering:
 
-1. Turn both halves off.
-2. Flash `settings_reset` to the dongle.
-3. Flash `totem_left` to the left half, then turn it off.
-4. Flash `totem_right` to the right half, then turn it off.
-5. Flash `totem_dongle prospector_adapter` to the dongle.
-6. Turn on only the left half and wait for it to connect.
-7. Turn on the right half and wait for it to connect.
-8. Re-pair the dongle with the computer.
-
-After this coordinated flash, ordinary keymap-only changes require flashing only the dongle. Repeat the three-device flash only when `config/west.yml`, the board target, or the split configuration changes.
-
-## Where To Edit
-
-- [`config/totem.keymap`](config/totem.keymap): active keymap
-- [`config/totem.conf`](config/totem.conf): global config
-- [`config/boards/shields/totem`](config/boards/shields/totem): local shield and dongle overrides
-- [`config/west.yml`](config/west.yml): upstream dependencies
-- [`docs/layouts`](docs/layouts): generated layout references
-- [`scripts/render_layouts.py`](scripts/render_layouts.py): layout rendering
-
-There is also a shield-local [`config/boards/shields/totem/totem.keymap`](config/boards/shields/totem/totem.keymap), but the active user keymap for this repo is [`config/totem.keymap`](config/totem.keymap).
+1. Flash `settings_reset` to the dongle, then flash the three normal images.
+2. Power on the left half before the right half so dongle slot 0/1 map to the
+   left/right battery arcs.
+3. Re-pair the dongle with the computer.
